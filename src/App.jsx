@@ -9,9 +9,6 @@ function App() {
   const [game, setGame] = useState(null)
 
 
-  useEffect(()=> {
-    fetch(ACCESS + "game/" + )
-  })
 
 
   return (
