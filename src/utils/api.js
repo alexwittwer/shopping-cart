@@ -1,4 +1,7 @@
-const API_KEY = "a0a18c56c1ac91a4b0e400865550f6cda2b15f80"
-const ACCESS = "https://www.giantbomb.com/api/"
+const API_KEY = "122f438994ad4f20891d56632a5002b3";
+const ACCESS = "https://api.rawg.io/api/games?dates=2023-01-01,2023-12-31&ordering=-added"
 
-export { API_KEY, ACCESS}
+
+const url = `${ACCESS}&key=${API_KEY}`;
+
+export { url };
