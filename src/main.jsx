@@ -1,12 +1,13 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
+import './index.css'
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ErrorPage from './components/ErrorPage.jsx';
 import Item from './components/Item.jsx';
 import App from './components/App.jsx'
 import Shop from './components/Shop.jsx';
 import Cart from './components/Cart.jsx';
-import './index.css'
+import Landing from './components/Landing.jsx';
 
 const router = createBrowserRouter([
   {
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
       {
         path: "/cart",
         element: <Cart />
+      },
+      {
+        path: "/home",
+        element: <Landing />
       }
     ],
   },
