@@ -8,6 +8,7 @@ import App from './components/App.jsx'
 import Shop from './components/Shop.jsx';
 import Cart from './components/Cart.jsx';
 import Landing from './components/Landing.jsx';
+import Header from './components/Header.jsx';
 
 const router = createBrowserRouter([
   {

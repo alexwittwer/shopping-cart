@@ -22,7 +22,7 @@ export default function Shop() {
 
   return (
     <>
-      <div className="grid grid-cols-5 gap-3">
+      <div className="grid grid-cols-5 gap-1">
         {games.map((game) => {
           return <Item key={game.id} game={game} />;
         })}
