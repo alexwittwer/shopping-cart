@@ -3,12 +3,11 @@ import ReactDOM from 'react-dom/client'
 import './index.css'
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ErrorPage from './components/ErrorPage.jsx';
-import Item from './components/Item.jsx';
 import App from './components/App.jsx'
 import Shop from './components/Shop.jsx';
 import Cart from './components/Cart.jsx';
 import Landing from './components/Landing.jsx';
-import Header from './components/Header.jsx';
+import GamesPage from './components/GamesPage.jsx';
 
 const router = createBrowserRouter([
   {
@@ -17,8 +16,8 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       {
-        path: "games/:game",
-        element: <Item />,
+        path: "games/:id",
+        element: <GamesPage />,
       },
       {
         path: "/shop",
