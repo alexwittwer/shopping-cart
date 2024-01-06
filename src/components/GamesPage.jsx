@@ -54,7 +54,7 @@ export default function GamesPage() {
           );
         })}
         <h1>{game.name}</h1>
-        <p>{removeTags(`${game.description}`)}</p>
+        <div dangerouslySetInnerHTML={{__html: game.description}} />
         <div>Price: $59.97</div>
       </article>
     </>
