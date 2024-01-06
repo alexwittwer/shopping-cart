@@ -47,6 +47,9 @@ button:focus-visible {
   transform: scale(1.05);
 }
 
+/* --- Carousel --- */
+
+
 /* --- Loader --- */
 .circle-spin-2 {
   --size: 100px;

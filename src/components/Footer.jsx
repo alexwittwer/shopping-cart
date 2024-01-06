@@ -1,3 +1,7 @@
+import tel_ico from "../assets/tel.svg"
+import email_ico from "../assets/email.svg"
+import chat_ico from "../assets/chat.svg"
+
 export default function Footer() {
   return (
     <footer className="bg-ye bg-slate-900 pt-3 content-border">
@@ -53,23 +57,19 @@ export default function Footer() {
             </li>
           </ul>
         </div>
-        <div className="footer-section">
+        <div className="footer-section self-stretch flex flex-col justify-between">
           <h3>ASK A GG.IO SPECIALIST</h3>
-          <p className="max-w-96">
-            Whether you're a seasoned gamer or new to the world of video games,
-            we're here to assist!
-          </p>
           <div className="contact-info">
-            <div className="contact-item flex">
-              <img src="telephone-icon.png" alt="Telephone Icon" />
+            <div className="contact-item flex items-center gap-2">
+              <img src={tel_ico} alt="Telephone Icon" width={"18px"}/>
               <p>(000)-GGIO</p>
             </div>
-            <div className="contact-item flex">
-              <img src="email-icon.png" alt="Email Icon" />
+            <div className="contact-item flex items-center gap-2">
+              <img src={email_ico} alt="Email Icon" width={"18px"}/>
               <p>support@gg.io</p>
             </div>
-            <div className="contact-item flex">
-              <img src="chat-icon.png" alt="Chat Icon" />
+            <div className="contact-item flex items-center gap-2">
+              <img src={chat_ico} alt="Chat Icon" width={"18px"}/>
               <p>Chat with Us</p>
             </div>
           </div>
