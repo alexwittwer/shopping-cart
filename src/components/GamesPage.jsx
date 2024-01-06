@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import removeTags from "../utils/strip-html";
 
 export default function GamesPage() {
   const [game, setGame] = useState([]);
@@ -39,6 +40,8 @@ export default function GamesPage() {
 
   if (loading) return (<p>Loading...</p>)
 
+  console.log(removeTags(`${game.description}`))
+
   return (
     <>
       <article>
@@ -51,7 +54,7 @@ export default function GamesPage() {
           );
         })}
         <h1>{game.name}</h1>
-        <p>{game.rating}</p>
+        <p>{removeTags(`${game.description}`)}</p>
         <div>Price: $59.97</div>
       </article>
     </>
