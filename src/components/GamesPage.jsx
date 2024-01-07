@@ -1,6 +1,9 @@
-import { useState, useEffect } from "react";
+import { useRef, useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import removeTags from "../utils/strip-html";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
 
 export default function GamesPage() {
   const [game, setGame] = useState([]);
@@ -38,24 +41,25 @@ export default function GamesPage() {
     }
   }, []);
 
-  if (loading) return (<p>Loading...</p>)
-
-  console.log(removeTags(`${game.description}`))
+  if (loading) {
+    return <div className="circle-spin-2 self-center place-self-center"></div>;
+  }
 
   return (
     <>
       <article>
-        
-        {screens.results.map((img) => {
-          return (
-            <div key={img.id}>
-              <img src={img.image} alt="" />
-            </div>
-          );
-        })}
+        <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
+          {screens.results.map((img) => {
+            return (
+              <SwiperSlide key={img.id}>
+                <img src={img.image} />
+              </SwiperSlide>
+            );
+          })}
+        </Swiper>
         <h1>{game.name}</h1>
-        <div dangerouslySetInnerHTML={{__html: game.description}} />
-        <div>Price: $59.97</div>
+        <div dangerouslySetInnerHTML={{ __html: game.description }} />
+        <div>Price: $49.99</div>
       </article>
     </>
   );

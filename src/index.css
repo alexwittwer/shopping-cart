@@ -38,23 +38,44 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-.card{
+.card {
   padding: 0;
 }
 
-.card:hover{
+.card:hover {
   padding: 0;
   transform: scale(1.05);
 }
 
 /* --- Carousel --- */
+.swiper {
+  width: 100%;
+  height: 100%;
+}
 
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+
+  /* Center slide text vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
 /* --- Loader --- */
 .circle-spin-2 {
   --size: 100px;
   --stroke-width: calc(var(--size) / 6);
-  --accent-opacity: .25;
+  --accent-opacity: 0.25;
   --color: currentColor;
   --animation-timing-function: linear;
   --animation-duration: 1s;
@@ -65,14 +86,15 @@ button:focus-visible {
 
 .circle-spin-2::before,
 .circle-spin-2::after {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   border-width: var(--stroke-width);
   border-style: solid;
   border-radius: 50%;
   transform: rotate(0deg);
-  animation: var(--animation-timing-function) var(--animation-duration) infinite circle-spin-2-animation;
+  animation: var(--animation-timing-function) var(--animation-duration) infinite
+    circle-spin-2-animation;
 }
 
 .circle-spin-2::before {
