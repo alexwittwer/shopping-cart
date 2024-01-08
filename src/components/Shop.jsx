@@ -6,7 +6,7 @@ import { CartAdd } from "./App"
 export default function Shop() {
   const [games, setGames] = useState([]);
   const [loading, setLoading] = useState(true);
-  const { addToCart } = useContext(CartAdd);
+  const addToCart = useContext(CartAdd);
   
 
   useEffect(() => {
