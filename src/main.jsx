@@ -12,7 +12,7 @@ import GamesPage from './components/GamesPage.jsx';
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
+    element: <div><App /></div>,
     errorElement: <ErrorPage />,
     children: [
       {
