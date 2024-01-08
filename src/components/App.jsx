@@ -3,22 +3,22 @@ import { Outlet } from "react-router-dom";
 import Header from "./Header";
 import Footer from "./Footer";
 
-const CartContents = createContext(null);
-const CartAdd = createContext(null);
+export const CartContents = createContext(null);
+export const CartAdd = createContext(null);
 const CartDel = createContext(null);
 
 function App() {
-  const [cart, setCart] = useState({});
+  const [cart, setCart] = useState([]);
   
 
   function addToCart(game) {
-   return setCart(...cart, game)
+   setCart([...cart, game])
   }
 
 
   return (
-  <CartContents.Provider value={cart} >
-   <CartAdd.Provider value = {addToCart} >
+  <CartContents.Provider value= { cart } >
+   <CartAdd.Provider value = { addToCart } >
     <div className="flex flex-col justify-between min-h-screen">
       <Header />
       <Outlet />

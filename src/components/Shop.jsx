@@ -1,11 +1,12 @@
 import { url } from "../utils/api";
 import { useEffect, useState, useContext} from "react";
 import Games from "./Games";
+import { CartAdd } from "./App"
 
 export default function Shop() {
   const [games, setGames] = useState([]);
   const [loading, setLoading] = useState(true);
-  const { addToCart } = useContext(CartAdd);
+  const addToCart = useContext(CartAdd);
   
 
   useEffect(() => {
@@ -35,7 +36,7 @@ export default function Shop() {
             <Card key={game.id}>
               <Games game={game} />
               <div className="flex justify-between items-center gap-3 m-2">
-                <p>$49.99</p>
+                <p>${(Math.round(game.rating * 1000)/100 + 0.09).toFixed(2)}</p>
                 <button onClick={() => addToCart(game)}>Add to cart</button>
               </div>
             </Card>

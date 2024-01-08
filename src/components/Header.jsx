@@ -1,7 +1,17 @@
 import { Link } from "react-router-dom";
+import { CartContents } from "./App";
+import { useContext, useState, useEffect } from "react";
 import logo from "../assets/logo.jpg"
 
-function Nav(cart) {
+function Nav() {
+  const cart = useContext(CartContents);
+  const [size, setSize] = useState(0);
+
+  useEffect(() => {
+    setSize(cart.length)
+  }, [cart] )
+
+
   return (
     <div className="justify-between flex items-center m-3">
       <img src={logo} className="h-6 md:h-10" alt="" />
@@ -11,7 +21,7 @@ function Nav(cart) {
           <Link to="shop">Shop</Link>
           <Link to="cart">
             <div>Cart</div>
-            <div>{cart.size}</div>
+            <div>{size}</div>
           </Link>
         </ul>
       </nav>
