@@ -7,7 +7,8 @@ export default function Cart() {
   return (
     <>
       <p>{cart.map((e) => 
-         return (<p>{JSON.stringjfy(e)}</p>)
+             return (<p>{JSON.stringjfy(e)}</p>)
+         )}
     </>
   );
 }
