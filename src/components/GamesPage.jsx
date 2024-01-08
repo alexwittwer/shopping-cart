@@ -75,7 +75,7 @@ export default function GamesPage() {
             slidesPerView={4}
             watchSlidesProgress={true}
             modules={[Navigation, FreeMode, Thumbs]} 
-            className="mySwiper">
+            className="mySwiper mb-3">
             {screens.results.map((img) => {
               return (
                 <SwiperSlide key={img.id}>
