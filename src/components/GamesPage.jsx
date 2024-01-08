@@ -1,8 +1,10 @@
 import { useRef, useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation } from "swiper/modules";
+import { FreeMode, Thumbs, Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
+import "swiper/css/thumbs";
+import "swiper/pagination";
 import "swiper/css/navigation";
 
 export default function GamesPage() {
@@ -50,7 +52,30 @@ export default function GamesPage() {
       <article className="flex items-center justify-center">
         <Card>
           <h1 className="text-center text-3xl my-5">{game.name}</h1>
-          <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
+          <Swiper 
+            navigation={true} 
+            loop={true} 
+            spaceBetween={10} 
+            thumbs={{ swiper: thumbsSwiper}}  
+            pagination = {{type: 'progressBar'}}
+            modules={[Navigation, FreeMode, Thumbs, Pagination]} 
+            className="mySwiper2">
+            {screens.results.map((img) => {
+              return (
+                <SwiperSlide key={img.id}>
+                  <img src={img.image} />
+                </SwiperSlide>
+              );
+            })}
+          </Swiper>
+          <Swiper 
+            onSwiper={setThumbsSwiper}
+            loop={true} 
+            spaceBetween={10} 
+            slidesPerView={4}
+            watchSlidesProgress={true}
+            modules={[Navigation, FreeMode, Thumbs]} 
+            className="mySwiper">
             {screens.results.map((img) => {
               return (
                 <SwiperSlide key={img.id}>
