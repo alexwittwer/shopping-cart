@@ -50,7 +50,7 @@ export default function GamesPage() {
 
   return (
     <>
-      <article className="flex items-center justify-center">
+      <article className="flex items-center justify-center mx-2">
         <Card>
           <h1 className="text-center text-3xl my-5">{game.name}</h1>
           <Swiper 
