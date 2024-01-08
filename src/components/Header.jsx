@@ -21,7 +21,7 @@ function Nav(cart) {
           <Link to="shop">Shop</Link>
           <Link to="cart">
             <div>Cart</div>
-            <div>{cart.size}</div>
+            <div>{size}</div>
           </Link>
         </ul>
       </nav>
