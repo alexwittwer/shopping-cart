@@ -1,5 +1,6 @@
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
+import { CartAdd } from "./App";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode, Thumbs, Navigation } from "swiper/modules";
 import "swiper/css";
@@ -11,6 +12,7 @@ export default function GamesPage() {
   const [game, setGame] = useState([]);
   const [screens, setScreens] = useState([]);
   const [loading, setLoading] = useState(true);
+  const addToCart = useContext (CartAdd);
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
   const { id } = useParams();
 
@@ -86,8 +88,8 @@ export default function GamesPage() {
           </Swiper>
           <div className="flex items-center justify-end m-3 gap-3">
             <div className="flex items-center gap-3">
-              <div>Price: $49.99</div>
-              <button>Add to cart</button>
+              <div>Price: {game.rating * 10}</div>
+              <button onClick = {() => addToCart(game)}>Add to cart</button>
             </div>
           </div>
           <div className="flex flex-col gap-3">
