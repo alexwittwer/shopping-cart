@@ -17,8 +17,8 @@ function App() {
 
 
   return (
-  <CartContents.Provider value={cart} >
-   <CartAdd.Provider value = {addToCart} >
+  <CartContents.Provider value= { cart } >
+   <CartAdd.Provider value = { addToCart } >
     <div className="flex flex-col justify-between min-h-screen">
       <Header />
       <Outlet />
