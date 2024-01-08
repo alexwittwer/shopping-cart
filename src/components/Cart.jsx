@@ -1,4 +1,4 @@
-import { CartContents } from "./App";
+import { CartContents, CartDel } from "./App";
 import { useContext } from "react";
 
 export default function Cart() {
@@ -9,8 +9,8 @@ export default function Cart() {
 
   return (
     <CartWrapper>
-      {cart.map((e) => (
-        <CartItem key={e.id} game={e} quantity={1} />
+      {cart.map((game) => (
+        <CartItem key={game.id} game={game} quantity={1} />
       ))}
       <div className="flex justify-between px-3">
         <p>Total:</p>
@@ -22,6 +22,7 @@ export default function Cart() {
 }
 
 function CartItem({ game, quantity }) {
+  const deleteGame = useContext(CartDel);
   const price = (Math.round(game.rating * 1000) / 100).toFixed(2);
 
   return (
@@ -30,7 +31,7 @@ function CartItem({ game, quantity }) {
       <div className="flex justify-evenly items-center gap-5">
         <div>Qty: {quantity}</div>
         <div>${price}</div>
-        <button>Remove</button>
+        <button onClick={() => deleteGame(game.id)}>Remove</button>
       </div>
     </div>
   );

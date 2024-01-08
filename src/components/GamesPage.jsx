@@ -49,8 +49,8 @@ export default function GamesPage() {
   }
 
   return (
-    <>
-      <article className="flex items-center justify-center mx-2">
+    <div className="flex flex-col items-center justify-center">
+      <article className="flex items-center justify-center mx-2 place-items-center lg:w-2/3">
         <Card>
           <h1 className="text-center text-3xl my-5">{game.name}</h1>
           <Swiper
@@ -89,7 +89,7 @@ export default function GamesPage() {
           </div>
         </Card>
       </article>
-    </>
+    </div>
   );
 }
 

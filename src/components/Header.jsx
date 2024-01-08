@@ -21,7 +21,11 @@ function Nav() {
           <Link to="cart">
             <div>
               <div>Cart</div>
-              <div className="relative -translate-y-5 translate-x-10 w-fit text-sm p-1 text-center bg-slate-600 bg-opacity-30 rounded-s">
+              <div
+                className={`relative -translate-y-5 translate-x-12 w-fit text-sm p-1 text-center ${
+                  size === 0 ? "hidden" : ""
+                } bg-slate-600 bg-opacity-30 rounded-full`}
+              >
                 {size}
               </div>
             </div>
