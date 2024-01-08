@@ -36,7 +36,7 @@ export default function Shop() {
             <Card key={game.id}>
               <Games game={game} />
               <div className="flex justify-between items-center gap-3 m-2">
-                <p>$49.99</p>
+                <p>${game.rating}</p>
                 <button onClick={() => addToCart(game)}>Add to cart</button>
               </div>
             </Card>
