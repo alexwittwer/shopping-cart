@@ -26,12 +26,12 @@ function CartItem({ game, quantity }) {
   const price = (Math.round(game.rating * 1000) / 100).toFixed(2);
 
   return (
-    <div className="flex justify-between items-center bg-slate-700 p-3 rounded-md w-full">
+    <div className="flex sm:text-sm justify-between items-center bg-slate-700 p-3 gap-1 rounded-md w-full">
       <div>{game.name}</div>
       <div className="flex justify-evenly items-center gap-5">
         <div>Qty: {quantity}</div>
         <div>${price}</div>
-        <button onClick={() => deleteGame(game.id)}>Remove</button>
+        <button className="sm:text-sm" onClick={() => deleteGame(game.id)}>Remove</button>
       </div>
     </div>
   );
@@ -39,7 +39,7 @@ function CartItem({ game, quantity }) {
 
 function CartWrapper({ children }) {
   return (
-    <div className="w-3/4 self-center">
+    <div className="w-3/4 sm:w-full flex justify-center items-center self-center">
       <div className="flex flex-col justify-center">
         <h1>Shopping Cart</h1>
         <div className="flex flex-col gap-3">{children}</div>

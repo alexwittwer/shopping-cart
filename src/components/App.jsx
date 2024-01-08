@@ -15,19 +15,19 @@ function App() {
   }
 
   function delGame(gameid) {
-    const newCart = cart.filter((game) => game.id !== gameid)
-    setCart(newCart)
+    const newCart = cart.filter((game) => game.id !== gameid);
+    setCart(newCart);
   }
 
   return (
     <CartContents.Provider value={cart}>
       <CartAdd.Provider value={addToCart}>
         <CartDel.Provider value={delGame}>
-        <div className="flex flex-col justify-between min-h-screen">
-          <Header />
-          <Outlet />
-          <Footer />
-        </div>
+          <div className="flex flex-col justify-between min-h-screen">
+            <Header />
+            <Outlet />
+            <Footer />
+          </div>
         </CartDel.Provider>
       </CartAdd.Provider>
     </CartContents.Provider>
