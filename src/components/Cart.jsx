@@ -7,7 +7,7 @@ export default function Cart() {
   return (
     <>
       {cart.map((e) => 
-        <p>{JSON.stringify(e)}</p>
+        <p>{e.name}</p>
       )}
     </>
   );
