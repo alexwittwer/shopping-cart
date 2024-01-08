@@ -12,7 +12,7 @@ function App() {
   
 
   function addToCart(game) {
-   return setCart({...cart, game})
+   setCart({...cart, game})
   }
 
 
