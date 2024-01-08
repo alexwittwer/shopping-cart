@@ -3,7 +3,7 @@ import { useContext } from "react"
 
 export default function Cart() {
   const cart = useContext(CartContents);
-  const test = JSON.stringify(cart);
+  const test = cart.forEach((ent) => JSON.stringify(ent));
  
   return (
     <>
