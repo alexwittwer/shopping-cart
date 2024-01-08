@@ -4,7 +4,7 @@ import Header from "./Header";
 import Footer from "./Footer";
 
 const CartContents = createContext(null);
-const CartAdd = createContext(null);
+export const CartAdd = createContext(null);
 const CartDel = createContext(null);
 
 function App() {
