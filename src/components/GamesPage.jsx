@@ -1,10 +1,9 @@
 import { useRef, useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { FreeMode, Thumbs, Navigation, Pagination } from "swiper/modules";
+import { FreeMode, Thumbs, Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/thumbs";
-import "swiper/pagination";
 import "swiper/css/navigation";
 
 export default function GamesPage() {
@@ -57,8 +56,7 @@ export default function GamesPage() {
             loop={true} 
             spaceBetween={10} 
             thumbs={{ swiper: thumbsSwiper}}  
-            pagination = {{type: 'progressBar'}}
-            modules={[Navigation, FreeMode, Thumbs, Pagination]} 
+            modules={[Navigation, FreeMode, Thumbs]} 
             className="mySwiper2">
             {screens.results.map((img) => {
               return (
