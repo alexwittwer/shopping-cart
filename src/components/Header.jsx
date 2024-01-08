@@ -4,8 +4,8 @@ import { useContext, useState, useEffect } from "react";
 import logo from "../assets/logo.jpg"
 
 function Nav(cart) {
-  const cart = useContext(CartContents)
-  const [size, setSize] = useState(0)
+  const cart = useContext(CartContents);
+  const [size, setSize] = useState(0);
 
   useEffect(() => {
     setSize(cart.length)
