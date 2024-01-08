@@ -3,7 +3,7 @@ import { useContext } from "react"
 
 export default function Cart() {
   const cart = useContext(CartContents);
-  const test = cart.toString();
+  const test = JSON.stringify(cart);
  
   return (
     <>
