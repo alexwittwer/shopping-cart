@@ -59,7 +59,7 @@ export default function GamesPage() {
             spaceBetween={10} 
             thumbs={{ swiper: thumbsSwiper}}  
             modules={[Navigation, FreeMode, Thumbs]} 
-            className="mySwiper2">
+            className="mySwiper2 mb-3">
             {screens.results.map((img) => {
               return (
                 <SwiperSlide key={img.id}>
@@ -71,7 +71,7 @@ export default function GamesPage() {
           <Swiper 
             onSwiper={setThumbsSwiper}
             loop={true} 
-            spaceBetween={10} 
+            spaceBetween={0} 
             slidesPerView={4}
             watchSlidesProgress={true}
             modules={[Navigation, FreeMode, Thumbs]} 
