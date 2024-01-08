@@ -4,12 +4,14 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode, Thumbs, Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/thumbs";
+import "swiper/css/free-mode";
 import "swiper/css/navigation";
 
 export default function GamesPage() {
   const [game, setGame] = useState([]);
   const [screens, setScreens] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [thumbsSwiper, setThumbsSwiper] = useState(null);
   const { id } = useParams();
 
   useEffect(() => {
