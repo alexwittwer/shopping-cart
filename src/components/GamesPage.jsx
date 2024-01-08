@@ -1,19 +1,17 @@
-import { useRef, useState, useEffect, useContext } from "react";
+import { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 import { CartAdd } from "./App";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { FreeMode, Thumbs, Navigation } from "swiper/modules";
+import { Pagination, Navigation } from "swiper/modules";
 import "swiper/css";
-import "swiper/css/thumbs";
-import "swiper/css/free-mode";
+import "swiper/css/pagination";
 import "swiper/css/navigation";
 
 export default function GamesPage() {
   const [game, setGame] = useState([]);
   const [screens, setScreens] = useState([]);
   const [loading, setLoading] = useState(true);
-  const addToCart = useContext (CartAdd);
-  const [thumbsSwiper, setThumbsSwiper] = useState(null);
+  const addToCart = useContext(CartAdd);
   const { id } = useParams();
 
   useEffect(() => {
@@ -55,41 +53,30 @@ export default function GamesPage() {
       <article className="flex items-center justify-center mx-2">
         <Card>
           <h1 className="text-center text-3xl my-5">{game.name}</h1>
-          <Swiper 
-            navigation={true} 
-            loop={true} 
-            spaceBetween={10} 
-            thumbs={{ swiper: thumbsSwiper}}  
-            modules={[Navigation, FreeMode, Thumbs]} 
-            className="mySwiper2 mb-1">
-            {screens.results.map((img) => {
-              return (
-                <SwiperSlide key={img.id}>
-                  <img src={img.image} />
-                </SwiperSlide>
-              );
-            })}
-          </Swiper>
-          <Swiper 
-            onSwiper={setThumbsSwiper}
-            loop={true} 
-            spaceBetween={1} 
-            slidesPerView={4}
-            watchSlidesProgress={true}
-            modules={[Navigation, FreeMode, Thumbs]} 
-            className="mySwiper mb-3">
-            {screens.results.map((img) => {
-              return (
-                <SwiperSlide key={img.id}>
-                  <img src={img.image} />
-                </SwiperSlide>
-              );
-            })}
+          <Swiper
+            pagination={{
+              type: "progressbar",
+            }}
+            navigation={true}
+            modules={[Pagination, Navigation]}
+            className="mySwiper2 mb-1"
+          >
+            {screens.results &&
+              screens.results.map((img) => {
+                return (
+                  <SwiperSlide key={img.id}>
+                    <img src={img.image} />
+                  </SwiperSlide>
+                );
+              })}
           </Swiper>
           <div className="flex items-center justify-end m-3 gap-3">
             <div className="flex items-center gap-3">
-              <div>Price: ${(Math.round(game.rating * 1000)/100 + 0.09).toFixed(2)}</div>
-              <button onClick = {() => addToCart(game)}>Add to cart</button>
+              <div>
+                Price: $
+                {(Math.round(game.rating * 1000) / 100 + 0.09).toFixed(2)}
+              </div>
+              <button onClick={() => addToCart(game)}>Add to cart</button>
             </div>
           </div>
           <div className="flex flex-col gap-3">
