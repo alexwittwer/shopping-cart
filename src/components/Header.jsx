@@ -9,7 +9,7 @@ function Nav(cart) {
 
   useEffect(() => {
     setSize(cart.length)
-  }, [cart] )
+  }, [size] )
 
 
   return (
