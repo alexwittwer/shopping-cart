@@ -3,7 +3,7 @@ import { Outlet } from "react-router-dom";
 import Header from "./Header";
 import Footer from "./Footer";
 
-const CartContents = createContext(null);
+export const CartContents = createContext(null);
 export const CartAdd = createContext(null);
 const CartDel = createContext(null);
 
