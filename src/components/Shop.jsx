@@ -1,6 +1,7 @@
 import { url } from "../utils/api";
 import { useEffect, useState, useContext} from "react";
 import Games from "./Games";
+import { CartAdd } from "./App"
 
 export default function Shop() {
   const [games, setGames] = useState([]);
