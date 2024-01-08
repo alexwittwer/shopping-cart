@@ -8,11 +8,11 @@ export const CartAdd = createContext(null);
 const CartDel = createContext(null);
 
 function App() {
-  const [cart, setCart] = useState({});
+  const [cart, setCart] = useState([]);
   
 
   function addToCart(game) {
-   setCart({...cart, game})
+   setCart([...cart, game])
   }
 
 
