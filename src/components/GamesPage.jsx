@@ -88,7 +88,7 @@ export default function GamesPage() {
           </Swiper>
           <div className="flex items-center justify-end m-3 gap-3">
             <div className="flex items-center gap-3">
-              <div>Price: ${Math.round(game.rating * 1000)/100}</div>
+              <div>Price: ${Math.round(game.rating * 1000)/100 + 0.09}</div>
               <button onClick = {() => addToCart(game)}>Add to cart</button>
             </div>
           </div>
