@@ -3,13 +3,13 @@ import { CartContents } from "./App";
 import { useContext, useState, useEffect } from "react";
 import logo from "../assets/logo.jpg"
 
-function Nav(cart) {
+function Nav() {
   const cart = useContext(CartContents);
   const [size, setSize] = useState(0);
 
   useEffect(() => {
     setSize(cart.length)
-  }, [size] )
+  }, [cart] )
 
 
   return (
