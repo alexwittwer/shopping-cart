@@ -106,7 +106,7 @@ export default function GamesPage() {
 
 function Card({ children }) {
   return (
-    <article className="w-3/4 p-5 bg-slate-700 rounded-xl my-5 shadow-xl">
+    <article className="w-7/8 p-5 bg-slate-700 rounded-xl my-5 shadow-xl">
       {children}
     </article>
   );
