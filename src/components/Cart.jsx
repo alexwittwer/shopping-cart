@@ -3,12 +3,12 @@ import { useContext } from "react"
 
 export default function Cart() {
   const cart = useContext(CartContents);
- 
+
   return (
     <>
-      <p>{cart.map((e) => 
-             return (<p>{JSON.stringjfy(e)}</p>)
-         )}
+      {cart.map((e) => 
+        <p>{JSON.stringify(e)}</p>
+      )}
     </>
   );
 }
