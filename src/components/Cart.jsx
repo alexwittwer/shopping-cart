@@ -1,11 +1,16 @@
+import { Link } from "react-router-dom";
 import { CartContents, CartDel } from "./App";
-import { useContext } from "react";
+import { useContext, useMemo } from "react";
 
 export default function Cart() {
   const cart = useContext(CartContents);
-  const total = cart.reduce((subtotal, game) => {
-    return subtotal + Math.round(game.rating * 1000) / 100;
-  }, 0);
+  const total = useMemo(
+    () =>
+      cart.reduce((subtotal, game) => {
+        return subtotal + Math.round(game.rating * 1000) / 100;
+      }, 0),
+    [cart]
+  );
 
   return (
     <CartWrapper>
@@ -28,11 +33,22 @@ function CartItem({ game }) {
   return (
     <div className="flex sm:text-sm justify-between items-center bg-slate-700 p-2 gap-1 rounded-md w-full">
       {console.log(game)}
-      <img src={game.background_image} className="max-w-16 lg:max-w-40" alt="" />
+      <Link to={`/games/${game.id}`} state={{ game }}>
+        <img
+          src={game.background_image}
+          className="max-w-16 lg:max-w-40"
+          alt=""
+        />
+      </Link>
       <div>{game.name}</div>
       <div className="flex justify-evenly items-center gap-5">
         <div>${price}</div>
-        <button className="text-xs md:text-base" onClick={() => deleteGame(game.id)}>Remove</button>
+        <button
+          className="text-xs md:text-base"
+          onClick={() => deleteGame(game.id)}
+        >
+          Remove
+        </button>
       </div>
     </div>
   );
