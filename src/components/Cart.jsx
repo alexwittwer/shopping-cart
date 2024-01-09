@@ -32,15 +32,16 @@ function CartItem({ game }) {
 
   return (
     <div className="flex sm:text-sm justify-between items-center bg-slate-700 p-2 gap-1 rounded-md w-full">
-      {console.log(game)}
-      <Link to={`/games/${game.id}`} state={{ game }}>
-        <img
-          src={game.background_image}
-          className="max-w-16 lg:max-w-40"
-          alt=""
-        />
-      </Link>
-      <div>{game.name}</div>
+      <div className="flex items-center gap-5">
+        <Link to={`/games/${game.id}`} state={{ game }}>
+          <img
+            src={game.background_image}
+            className="max-w-16 lg:max-w-40"
+            alt=""
+          />
+        </Link>
+        <div>{game.name}</div>
+      </div>
       <div className="flex justify-evenly items-center gap-5">
         <div>${price}</div>
         <button
