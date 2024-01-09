@@ -38,7 +38,7 @@ export default function Landing() {
       </Link>
       <p>Thousands of games to choose from!</p>
       <Marquee
-        speed={100}
+        speed={50}
         gradient={true}
         pauseOnHover={true}
         autoFill={true}
@@ -59,7 +59,7 @@ export default function Landing() {
         })}
       </Marquee>
       <Marquee
-        speed={100}
+        speed={50}
         pauseOnHover={true}
         gradient={true}
         gradientWidth={50}
@@ -81,7 +81,7 @@ export default function Landing() {
         })}
       </Marquee>
       <Marquee
-        speed={200}
+        speed={50}
         gradient={true}
         autoFill={true}
         pauseOnHover={true}
