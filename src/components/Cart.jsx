@@ -10,7 +10,7 @@ export default function Cart() {
   return (
     <CartWrapper>
       {cart.map((game) => (
-        <CartItem key={game.id} game={game} quantity={1} />
+        <CartItem key={game.id} game={game} />
       ))}
       <div className="flex justify-between px-3">
         <p>Total:</p>
@@ -21,7 +21,7 @@ export default function Cart() {
   );
 }
 
-function CartItem({ game, quantity }) {
+function CartItem({ game }) {
   const deleteGame = useContext(CartDel);
   const price = (Math.round(game.rating * 1000) / 100).toFixed(2);
 
@@ -29,7 +29,6 @@ function CartItem({ game, quantity }) {
     <div className="flex sm:text-sm justify-between items-center bg-slate-700 p-3 gap-1 rounded-md w-full">
       <div>{game.name}</div>
       <div className="flex justify-evenly items-center gap-5">
-        <div>Qty: {quantity}</div>
         <div>${price}</div>
         <button className="sm:text-sm" onClick={() => deleteGame(game.id)}>Remove</button>
       </div>

@@ -2,7 +2,7 @@ import { useState, createContext } from "react";
 import { Outlet, useLocation } from "react-router-dom";
 import Header from "./Header";
 import Footer from "./Footer";
-import Landing from "./Landing"
+import Landing from "./Landing";
 
 export const CartContents = createContext(null);
 export const CartAdd = createContext(null);
@@ -13,7 +13,12 @@ function App() {
   const [cart, setCart] = useState([]);
 
   function addToCart(game) {
-    setCart([...cart, game]);
+    const gameInCart = cart.some((item) => item.id === game.id);
+    if (gameInCart) {
+      alert("Cannot add game: Already in cart");
+    } else {
+      setCart([...cart, game]);
+    }
   }
 
   function delGame(gameid) {
