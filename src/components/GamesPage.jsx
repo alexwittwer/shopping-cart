@@ -51,10 +51,8 @@ export default function GamesPage() {
   }
 
   return (
-    <div className="md:flex md:items-center md:justify-center">
-      <article className="flex items-center justify-center mx-2 place-items-center lg:w-2/3">
-        <Card>
-          <h1 className="text-center text-3xl my-5">{game.name}</h1>
+    <PageWrapper>
+        <Card game={game}>
           <Swiper
             pagination={{
               type: "progressbar",
@@ -72,39 +70,59 @@ export default function GamesPage() {
                 );
               })}
           </Swiper>
-          <div className="flex items-center justify-end m-3 gap-3">
-            <div className="flex items-center gap-3">
-              <div>
-                Price: $
-                {(Math.round(game.rating * 1000) / 100 + 0.09).toFixed(2)}
-              </div>
-              {cart.some((item) => item.id === game.id) ? (
-                <button onClick={() => delGame(game.id)}>
-                  Remove from Cart
-                </button>
-              ) : (
-                <button onClick={() => addToCart(game)}>Add to cart</button>
-              )}
-            </div>
-          </div>
-          <div className="flex flex-col gap-3">
-            <div>Average rating: {game.rating}/5</div>
-            <p>Description: </p>
-            <div
-              className="flex flex-col gap-3"
-              dangerouslySetInnerHTML={{ __html: game.description }}
-            />
-          </div>
+          <Description
+            game={game}
+            addToCart={addToCart}
+            delGame={delGame}
+            cart={cart}
+          />
         </Card>
-      </article>
+      </PageWrapper>
+  );
+}
+
+function PageWrapper({ children }) {
+  return (
+    <article className="md:flex md:items-center md:justify-center">
+      <div className="flex items-center justify-center mx-2 place-items-center lg:w-2/3">
+        {children}
+      </div>{" "}
+    </article>
+  );
+}
+
+function Card({ children, game }) {
+  return (
+    <div className="w-full mx-2 p-5 bg-slate-700 rounded-xl my-5 shadow-xl">
+      <h1 className="text-center text-3xl my-5">{game.name}</h1>
+      {children}
     </div>
   );
 }
 
-function Card({ children }) {
+function Description({ game, addToCart, delGame, cart }) {
   return (
-    <div className="w-full mx-2 p-5 bg-slate-700 rounded-xl my-5 shadow-xl">
-      {children}
-    </div>
+    <>
+      <div className="flex items-center justify-end m-3 gap-3">
+        <div className="flex items-center gap-3">
+          <div>
+            Price: ${(Math.round(game.rating * 1000) / 100 + 0.09).toFixed(2)}
+          </div>
+          {cart.some((item) => item.id === game.id) ? (
+            <button onClick={() => delGame(game.id)}>Remove from Cart</button>
+          ) : (
+            <button onClick={() => addToCart(game)}>Add to cart</button>
+          )}
+        </div>
+      </div>
+      <div className="flex flex-col gap-3">
+        <div>Average rating: {game.rating}/5</div>
+        <p>Description: </p>
+        <div
+          className="flex flex-col gap-3"
+          dangerouslySetInnerHTML={{ __html: game.description }}
+        />
+      </div>
+    </>
   );
 }

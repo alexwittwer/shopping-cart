@@ -3,7 +3,7 @@ import { CartContents } from "./App";
 import { useContext, useState, useEffect } from "react";
 import logo from "../assets/logo.jpg";
 
-function Nav() {
+export default function Header() {
   const cart = useContext(CartContents);
   const [size, setSize] = useState(0);
 
@@ -34,8 +34,4 @@ function Nav() {
       </nav>
     </div>
   );
-}
-
-export default function Header() {
-  return <Nav />;
 }

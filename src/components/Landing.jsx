@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import Marquee from "react-fast-marquee";
 import { useState, useEffect } from "react";
 import { popular, recent, upcoming } from "../utils/api";
+import Loading from "./Loading";
 
 export default function Landing() {
   const [popularGames, setPopularGames] = useState([]);
@@ -28,15 +29,12 @@ export default function Landing() {
   }, []);
 
   if (loading) {
-    return <div className="circle-spin-2 self-center place-self-center"></div>;
+    return <Loading />;
   }
 
   return (
-    <section className="flex flex-col items-center justify-center gap-5">
-      <Link to="/shop">
-        <button className="text-3xl">Shop Good Games</button>
-      </Link>
-      <p>Thousands of games to choose from!</p>
+    <LandingWrapper>
+      <Hero />
       <Marquee
         speed={50}
         gradient={true}
@@ -47,15 +45,7 @@ export default function Landing() {
         className="flex slate gap-10"
       >
         {popularGames.results.map((game) => {
-          return (
-            <Link key={game.id} to={`/games/${game.id}`}>
-              <img
-                src={game.background_image}
-                className="h-20 md:40 px-2"
-                alt=""
-              />
-            </Link>
-          );
+          return <Image key={game.id} game={game} />;
         })}
       </Marquee>
       <Marquee
@@ -69,15 +59,7 @@ export default function Landing() {
         direction="right"
       >
         {recentGames.results.map((game) => {
-          return (
-            <Link key={game.id} to={`/games/${game.id}`}>
-              <img
-                src={game.background_image}
-                className="h-20 md:40 px-2"
-                alt=""
-              />
-            </Link>
-          );
+          return <Image key={game.id} game={game} />;
         })}
       </Marquee>
       <Marquee
@@ -90,17 +72,36 @@ export default function Landing() {
         className="flex slate gap-10"
       >
         {upcomingGames.results.map((game) => {
-          return (
-            <Link key={game.id} to={`/games/${game.id}`}>
-              <img
-                src={game.background_image}
-                className="h-20 md:40 px-2"
-                alt=""
-              />
-            </Link>
-          );
+          return <Image key={game.id} game={game} />;
         })}
       </Marquee>
+    </LandingWrapper>
+  );
+}
+
+function Hero() {
+  return (
+    <>
+      <Link to="/shop">
+        <button className="text-3xl">Shop Good Games</button>
+      </Link>
+      <p>Thousands of games to choose from!</p>
+    </>
+  );
+}
+
+function Image({ game }) {
+  return (
+    <Link to={`/games/${game.id}`}>
+      <img src={game.background_image} className="h-20 md:40 px-2" alt="" />
+    </Link>
+  );
+}
+
+function LandingWrapper({ children }) {
+  return (
+    <section className="flex flex-col items-center justify-center gap-5">
+      {children}
     </section>
   );
 }
