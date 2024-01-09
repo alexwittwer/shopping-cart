@@ -26,7 +26,9 @@ function CartItem({ game }) {
   const price = (Math.round(game.rating * 1000) / 100).toFixed(2);
 
   return (
-    <div className="flex sm:text-sm justify-between items-center bg-slate-700 p-3 gap-1 rounded-md w-full">
+    <div className="flex sm:text-sm justify-between items-center bg-slate-700 p-2 gap-1 rounded-md w-full">
+      {console.log(game)}
+      <img src={game.background_image} className="max-w-16 lg:max-w-40" alt="" />
       <div>{game.name}</div>
       <div className="flex justify-evenly items-center gap-5">
         <div>${price}</div>
@@ -38,8 +40,8 @@ function CartItem({ game }) {
 
 function CartWrapper({ children }) {
   return (
-    <div className="w-3/4 sm:w-full flex justify-center items-center self-center">
-      <div className="flex flex-col justify-center md:w-1/3">
+    <div className="w-full sm:m-4 flex justify-center items-center self-center">
+      <div className="flex flex-col justify-center sm:w-full mx-3 md:mx-0 md:w-2/3">
         <h1>Shopping Cart</h1>
         <div className="flex flex-col gap-3">{children}</div>
       </div>
