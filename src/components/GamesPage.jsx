@@ -49,7 +49,7 @@ export default function GamesPage() {
   }
 
   return (
-    <div className="flex flex-col items-center justify-center">
+    <>
       <article className="flex items-center justify-center mx-2 place-items-center lg:w-2/3">
         <Card>
           <h1 className="text-center text-3xl my-5">{game.name}</h1>
@@ -89,14 +89,14 @@ export default function GamesPage() {
           </div>
         </Card>
       </article>
-    </div>
+    </>
   );
 }
 
 function Card({ children }) {
   return (
-    <article className="w-full mx-2 p-5 bg-slate-700 rounded-xl my-5 shadow-xl">
+    <div className="w-full mx-2 p-5 bg-slate-700 rounded-xl my-5 shadow-xl">
       {children}
-    </article>
+    </div>
   );
 }
