@@ -32,7 +32,7 @@ function CartItem({ game }) {
       <div>{game.name}</div>
       <div className="flex justify-evenly items-center gap-5">
         <div>${price}</div>
-        <button className="sm:text-sm" onClick={() => deleteGame(game.id)}>Remove</button>
+        <button className="text-xs md:text-base" onClick={() => deleteGame(game.id)}>Remove</button>
       </div>
     </div>
   );
