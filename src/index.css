@@ -75,7 +75,8 @@ button:focus-visible {
   object-fit: cover;
 }
 
-/* --- Loader --- */.line-2-vertical {
+/* --- Loader --- */
+.line-2-vertical {
   --size: 100px;
   --stroke-width: calc(var(--size) / 6);
   --color: currentColor;
@@ -84,6 +85,7 @@ button:focus-visible {
   position: relative;
   width: var(--size);
   height: var(--size);
+  transform: rotate(90deg);
 }
 
 .line-2-vertical::before,

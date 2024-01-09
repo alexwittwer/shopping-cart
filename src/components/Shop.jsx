@@ -34,7 +34,7 @@ export default function Shop() {
 
   return (
     <main>
-      <NavButtons
+      <SearchButtons
         setGames={setGames}
         fetchData={fetchData}
         setLoading={setLoading}
@@ -82,7 +82,7 @@ function CardWrapper({ children }) {
   );
 }
 
-function NavButtons({ setLoading, fetchData, setGames, params }) {
+function SearchButtons({ setLoading, fetchData, setGames, params }) {
   const { recent, popular, upcoming } = params;
   return (
     <div className="flex gap-3 justify-center">

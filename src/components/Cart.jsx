@@ -17,11 +17,7 @@ export default function Cart() {
       {cart.map((game) => (
         <CartItem key={game.id} game={game} />
       ))}
-      <div className="flex justify-between px-3">
-        <p>Total:</p>
-        <p>${total.toFixed(2)}</p>
-      </div>
-      <button onClick={() => alert("payment accepted")}>Checkout</button>
+      <CartItemPrice total={total} />
     </CartWrapper>
   );
 }
@@ -63,5 +59,17 @@ function CartWrapper({ children }) {
         <div className="flex flex-col gap-3">{children}</div>
       </div>
     </div>
+  );
+}
+
+function CartItemPrice({ total }) {
+  return (
+    <>
+      <div className="flex justify-between px-3">
+        <p>Total:</p>
+        <p>${total.toFixed(2)}</p>
+      </div>
+      <button onClick={() => alert("payment accepted")}>Checkout</button>
+    </>
   );
 }
