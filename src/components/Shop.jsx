@@ -11,7 +11,6 @@ export default function Shop() {
   async function fetchData(url) {
     const response = await fetch(url);
     const data = await response.json();
-
     setLoading(false);
 
     return data;
@@ -23,7 +22,6 @@ export default function Shop() {
         setGames(results);
       })
       .catch((error) => console.warn(error))
-      .finally(setLoading(false));
   }, []);
 
   if (loading) {
