@@ -1,6 +1,6 @@
 import { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
-import { CartAdd } from "./App";
+import { CartAdd, CartContents, CartDel } from "./App";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation } from "swiper/modules";
 import "swiper/css";
@@ -12,6 +12,8 @@ export default function GamesPage() {
   const [screens, setScreens] = useState([]);
   const [loading, setLoading] = useState(true);
   const addToCart = useContext(CartAdd);
+  const cart = useContext(CartContents);
+  const delGame = useContext(CartDel);
   const { id } = useParams();
 
   useEffect(() => {
@@ -76,7 +78,13 @@ export default function GamesPage() {
                 Price: $
                 {(Math.round(game.rating * 1000) / 100 + 0.09).toFixed(2)}
               </div>
-              <button onClick={() => addToCart(game)}>Add to cart</button>
+              {cart.some((item) => item.id === game.id) ? (
+                <button onClick={() => delGame(game.id)}>
+                  Remove from Cart
+                </button>
+              ) : (
+                <button onClick={() => addToCart(game)}>Add to cart</button>
+              )}
             </div>
           </div>
           <div className="flex flex-col gap-3">
