@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 import { CartAdd, CartContents, CartDel } from "./App";
@@ -44,7 +45,7 @@ export default function GamesPage() {
         .catch((error) => console.warn(error))
         .finally(() => setLoading(false));
     }
-  }, []);
+  }, [id]);
 
   if (loading) {
     return <div className="circle-spin-2 self-center place-self-center"></div>;

@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { popular, recent, upcoming } from "../utils/api";
 import { useEffect, useState, useContext } from "react";
 import Games from "./Games";
@@ -76,8 +77,7 @@ function Card({ children }) {
 function CardWrapper({ children }) {
   return (
     <div className="grid xl:grid-cols-4 sm:grid-cols-2 gap-3 my-5 place-items-center">
-      {" "}
-      {children}{" "}
+      {children}
     </div>
   );
 }
