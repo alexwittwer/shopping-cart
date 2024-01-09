@@ -1,12 +1,14 @@
 import { popular, recent, upcoming } from "../utils/api";
 import { useEffect, useState, useContext } from "react";
 import Games from "./Games";
-import { CartAdd } from "./App";
+import { CartContents, CartAdd, CartDel } from "./App";
 
 export default function Shop() {
   const [games, setGames] = useState([]);
   const [loading, setLoading] = useState(true);
   const addToCart = useContext(CartAdd);
+  const delGame = useContext(CartDel)
+  const cart = useContext(CartContents)
 
   async function fetchData(url) {
     const response = await fetch(url);
@@ -21,7 +23,7 @@ export default function Shop() {
       .then((results) => {
         setGames(results);
       })
-      .catch((error) => console.warn(error))
+      .catch((error) => console.warn(error));
   }, []);
 
   if (loading) {
@@ -33,7 +35,7 @@ export default function Shop() {
       <div className="flex gap-3 justify-center">
         <button
           onClick={() => {
-            setLoading(true)
+            setLoading(true);
             fetchData(recent).then((results) => setGames(results));
           }}
         >
@@ -41,7 +43,7 @@ export default function Shop() {
         </button>
         <button
           onClick={() => {
-            setLoading(true)
+            setLoading(true);
             fetchData(popular).then((results) => setGames(results));
           }}
         >
@@ -49,7 +51,7 @@ export default function Shop() {
         </button>
         <button
           onClick={() => {
-            setLoading(true)
+            setLoading(true);
             fetchData(upcoming).then((results) => setGames(results));
           }}
         >
@@ -66,7 +68,7 @@ export default function Shop() {
                   <p>
                     ${(Math.round(game.rating * 1000) / 100 + 0.09).toFixed(2)}
                   </p>
-                  <button onClick={() => addToCart(game)}>Add to cart</button>
+                  { cart.some((item) => item.id === game.id) ? <button onClick={() => delGame(game.id)}>Remove from Cart</button> : <button onClick={() => addToCart(game)}>Add to cart</button>}
                 </div>
               </Card>
             );
