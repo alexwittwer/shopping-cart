@@ -42,7 +42,7 @@ button:focus-visible {
   padding: 0;
 }
 
-.card-image{
+.card-image {
   aspect-ratio: 16/9;
 }
 
@@ -120,3 +120,13 @@ button:focus-visible {
   }
 }
 
+@media screen and (max-width: 480px) {
+  .footer-content {
+    display: none;
+  }
+  .footer-bottom {
+    margin-block: 10px;
+    justify-content: center;
+    align-items: center;
+  }
+}

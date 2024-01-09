@@ -21,8 +21,6 @@ function App() {
     setCart(newCart);
   }
 
-  console.log(name);
-
   return (
     <CartContents.Provider value={cart}>
       <CartAdd.Provider value={addToCart}>
