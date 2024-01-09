@@ -39,7 +39,7 @@ function CartItem({ game }) {
 function CartWrapper({ children }) {
   return (
     <div className="w-3/4 sm:w-full flex justify-center items-center self-center">
-      <div className="flex flex-col justify-center">
+      <div className="flex flex-col justify-center md:w-1/3">
         <h1>Shopping Cart</h1>
         <div className="flex flex-col gap-3">{children}</div>
       </div>
