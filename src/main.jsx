@@ -29,10 +29,6 @@ const router = createBrowserRouter([
         element: <Cart />
       },
       {
-        path: "/home",
-        element: <Landing />
-      },
-      {
         path: "/search/:term",
         element: <SearchResults />
       }
