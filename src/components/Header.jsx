@@ -20,9 +20,6 @@ export default function Header() {
           <Link to="cart">Cart</Link>
           <div className={`-translate-y-5 -translate-x-12 w-fit text-sm p-1 text-center bg-slate-600 bg-opacity-30 rounded-full`}>
                 {cart.length > 0 ? cart.length : ""}
-              </div>
-            </div>
-          </Link>
         </ul>
       </nav>
     </div>
