@@ -39,7 +39,7 @@ export default function SearchBar({ setLoading }) {
             setTerm(e.target.value);
           }}
         />
-        <img src={srch_ico} alt="" width={"20px"} />
+        <button><img src={srch_ico} alt="" width={"20px"} /></button>
       </form>
     </>
   );
