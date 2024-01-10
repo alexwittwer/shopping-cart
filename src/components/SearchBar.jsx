@@ -3,13 +3,14 @@ import { search } from "../utils/api";
 import { useNavigate } from "react-router-dom";
 import { SearchFunc } from "./App";
 
-export default function SearchBar() {
+export default function SearchBar({ setLoading }) {
   const [term, setTerm] = useState();
   const supplySearch = useContext(SearchFunc);
   const navigate = useNavigate();
 
   async function fetchData(url) {
     try {
+      if (setLoading) {setLoading(true)}
       const response = await fetch(url);
       const data = await response.json();
       await supplySearch(data);
@@ -29,7 +30,7 @@ export default function SearchBar() {
     <>
       <form action="" onSubmit={handleSearch}>
         <input
-            className="max-w-40 sm:max-w-full"
+          className="max-w-40 sm:max-w-full"
           type="search"
           name="search"
           id="search"

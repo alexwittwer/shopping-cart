@@ -37,7 +37,7 @@ export default function Landing() {
   return (
     <LandingWrapper>
       <Hero />
-      <SearchBar />
+      <SearchBar setLoading={setLoading}/>
       <Marquee
         speed={50}
         gradient={true}

@@ -19,7 +19,7 @@ export default function Header() {
       </div>
       <nav className="flex items-center justify-end">
         <ul className="flex text-2xl p-3 gap-2">
-          <SearchBar />
+          <SearchBar setLoading={null}/>
           <Link to="home">Home</Link>
           <Link to="shop">Shop</Link>
           <Link to="cart">
