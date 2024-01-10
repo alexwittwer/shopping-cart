@@ -1,8 +1,10 @@
+/* eslint-disable react/prop-types */
 import { Link } from "react-router-dom";
 import Marquee from "react-fast-marquee";
 import { useState, useEffect } from "react";
 import { popular, recent, upcoming } from "../utils/api";
 import Loading from "./Loading";
+import SearchBar from "./SearchBar";
 
 export default function Landing() {
   const [popularGames, setPopularGames] = useState([]);
@@ -35,6 +37,7 @@ export default function Landing() {
   return (
     <LandingWrapper>
       <Hero />
+      <SearchBar />
       <Marquee
         speed={50}
         gradient={true}

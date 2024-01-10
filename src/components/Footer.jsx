@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import tel_ico from "../assets/tel.svg";
 import email_ico from "../assets/email.svg";
 import chat_ico from "../assets/chat.svg";

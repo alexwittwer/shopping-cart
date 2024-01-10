@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { Link } from "react-router-dom";
 import { CartContents, CartDel } from "./App";
 import { useContext, useMemo } from "react";
