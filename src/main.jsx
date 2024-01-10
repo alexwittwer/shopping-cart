@@ -6,14 +6,13 @@ import ErrorPage from './components/ErrorPage.jsx';
 import App from './components/App.jsx'
 import Shop from './components/Shop.jsx';
 import Cart from './components/Cart.jsx';
-import Landing from './components/Landing.jsx';
 import GamesPage from './components/GamesPage.jsx';
 import SearchResults from './components/SearchResults.jsx';
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <div><App /></div>,
+    element: <App />,
     errorElement: <ErrorPage />,
     children: [
       {
