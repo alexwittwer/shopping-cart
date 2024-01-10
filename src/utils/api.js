@@ -17,7 +17,7 @@ const recent = `${ACCESS2}&key=${API_KEY}`;
 const upcoming = `${ACCESS3}&key=${API_KEY}`;
 
 function search(str) {
-  return `${BASE}search=${str}&ordering=rating&key=${API_KEY}`;
+  return `${BASE}search=${str}&ordering=-rating&key=${API_KEY}`;
 }
 
 export { search, popular, recent, upcoming };
