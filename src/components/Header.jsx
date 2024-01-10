@@ -12,7 +12,7 @@ export default function Header() {
       <Link to="/">
         <img src={logo} className="hidden absolute top-5 left-5 md:block md:h-10" alt="" />
       </Link>
-      <nav>
+      <nav className="flex items-center">
         <ul className="flex justify-between items-center text-2xl p-3 gap-2">
           <SearchBar setLoading={null}/>
           <Link to="/">Home</Link>
