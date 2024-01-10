@@ -82,7 +82,7 @@ export default function GamesPage() {
 
 function Card({ children, game }) {
   return (
-    <div className="w-full mx-2 p-5 bg-slate-700 rounded-xl my-5 shadow-xl lg:w-2/3 lg:mx-auto">
+    <div className="mx-2 p-5 bg-slate-700 rounded-xl my-5 shadow-xl lg:w-2/3 lg:mx-auto">
       <h1 className="text-center text-3xl my-5">{game.name}</h1>
       {children}
     </div>
