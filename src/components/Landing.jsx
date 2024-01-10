@@ -37,7 +37,7 @@ export default function Landing() {
     <LandingWrapper>
       <Hero />
       <Marquee
-        speed={50}
+        speed={25}
         gradient={true}
         pauseOnHover={true}
         autoFill={true}
@@ -50,7 +50,7 @@ export default function Landing() {
         })}
       </Marquee>
       <Marquee
-        speed={50}
+        speed={25}
         pauseOnHover={true}
         gradient={true}
         gradientWidth={50}
@@ -64,7 +64,7 @@ export default function Landing() {
         })}
       </Marquee>
       <Marquee
-        speed={50}
+        speed={25}
         gradient={true}
         autoFill={true}
         pauseOnHover={true}
@@ -83,9 +83,9 @@ export default function Landing() {
 function Hero() {
   return (
     <>
-      <Link to="/shop">
-        <button className="hero text-4xl md:text-6xl">Shop Good Games</button>
-      </Link>
+      <button className="hero w-2/3 bg-slate-700 text-slate-50 hover:bg-blue-500 transition-all text-4xl md:text-6xl">
+        <Link to="/shop">Shop Good Games</Link>
+      </button>
       <p>Thousands of games to choose from!</p>
     </>
   );

@@ -20,7 +20,7 @@ export default function SearchBar() {
     <>
       <form action="" className ="flex items-center gap-1" onSubmit={handleSearch}>
         <input
-          className="max-w-40 pl-2 sm:max-w-full"
+          className="max-w-40 pl-2 md:max-w-80 lg:min-w-96"
           type="search"
           name="search"
           id="search"
