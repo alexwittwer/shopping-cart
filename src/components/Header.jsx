@@ -17,12 +17,8 @@ export default function Header() {
           <SearchBar setLoading={null}/>
           <Link to="/">Home</Link>
           <Link to="shop">Shop</Link>
-          <Link to="cart">
-            <div className="flex flex-col justify-center items-center">
-              <div>Cart</div>
-              <div
-                className={`-translate-y-5 translate-x-5 w-fit text-sm p-1 text-center bg-slate-600 bg-opacity-30 rounded-full`}
-              >
+          <Link to="cart">Cart</Link>
+          <div className={`-translate-y-5 -translate-x-12 w-fit text-sm p-1 text-center bg-slate-600 bg-opacity-30 rounded-full`}>
                 {cart.length > 0 ? cart.length : ""}
               </div>
             </div>
