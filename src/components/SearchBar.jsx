@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import { search } from "../utils/api";
 import { useNavigate } from "react-router-dom";
 import { SearchFunc } from "./App";
-import srch_ico from "../assets/srch_ico"
+import srch_ico from "../assets/srch_ico.svg"
 
 export default function SearchBar({ setLoading }) {
   const [term, setTerm] = useState();
@@ -29,7 +29,7 @@ export default function SearchBar({ setLoading }) {
 
   return (
     <>
-      <form action="" onSubmit={handleSearch}>
+      <form action="" className ="flex items-center" onSubmit={handleSearch}>
         <input
           className="max-w-40 sm:max-w-full"
           type="search"
