@@ -19,7 +19,7 @@ export default function Header() {
           <Link to="shop">Shop</Link>
           <Link to="cart">Cart</Link>
           <div className={`absolute right-0 top-0 -translate-y-5 -translate-x-12 w-fit text-sm p-1 text-center bg-slate-600 bg-opacity-30 rounded-full`}>
-                {cart.length > 0 ? cart.length : ""}.      </div>
+                {cart.length > 0 ? cart.length : ""}     </div>
         </ul>
       </nav>
     </div>
