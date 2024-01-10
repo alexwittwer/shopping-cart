@@ -21,7 +21,7 @@ export default function Header() {
             <div className="flex flex-col justify-center items-center">
               <div>Cart</div>
               <div
-                className={`relative -translate-y-5 translate-x-12 w-fit text-sm p-1 text-center bg-slate-600 bg-opacity-30 rounded-full`}
+                className={`-translate-y-5 translate-x-5 w-fit text-sm p-1 text-center bg-slate-600 bg-opacity-30 rounded-full`}
               >
                 {cart.length > 0 ? cart.length : ""}
               </div>
