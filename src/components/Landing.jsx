@@ -84,7 +84,7 @@ function Hero() {
   return (
     <>
       <Link to="/shop">
-        <button className="hero text-6xl">Shop Good Games</button>
+        <button className="hero text-4xl md:text-6xl">Shop Good Games</button>
       </Link>
       <p>Thousands of games to choose from!</p>
     </>
