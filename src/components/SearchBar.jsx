@@ -29,7 +29,7 @@ export default function SearchBar({ setLoading }) {
 
   return (
     <>
-      <form action="" className ="flex items-center" onSubmit={handleSearch}>
+      <form action="" className ="flex items-center gap-1" onSubmit={handleSearch}>
         <input
           className="max-w-40 sm:max-w-full"
           type="search"
