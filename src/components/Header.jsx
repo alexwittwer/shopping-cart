@@ -8,7 +8,7 @@ export default function Header() {
   const cart = useContext(CartContents);
 
   return (
-    <div className="justify-between flex items-center mr-10 sm:mr-10 sm:m-5">
+    <div className="justify-between flex items-center mr-3 md:mr-10 sm:p-3">
       <Link to="/">
         <img src={logo} className="hidden absolute top-5 left-5 md:block md:h-10" alt="" />
       </Link>
