@@ -8,7 +8,7 @@ export default function Header() {
   const cart = useContext(CartContents);
 
   return (
-    <div className="justify-between flex items-center mr-10 sm:mr-10 sm:m-5">
+    <div className="justify-between flex items-center mr-3 md:mr-10 sm:p-3">
       <Link to="/">
         <img
           src={logo}
@@ -21,16 +21,10 @@ export default function Header() {
           <SearchBar />
           <Link to="/">Home</Link>
           <Link to="shop">Shop</Link>
-          <Link to="cart">
-            <div>
-              <div>Cart</div>
-              <div
-                className={`relative -translate-y-5 translate-x-12 w-fit text-sm p-1 text-center bg-slate-600 bg-opacity-30 rounded-full`}
-              >
-                {cart.length > 0 ? cart.length : ""}
-              </div>
-            </div>
-          </Link>
+          <Link to="cart">Cart <div className={`absolute -translate-y-5 translate-x-10 w-fit text-sm p-1 text-center bg-slate-600 bg-opacity-30 rounded-full`}>
+       {cart.length > 0 ? cart.length : ""}             
+          </div>
+         </Link>
         </ul>
       </nav>
     </div>
