@@ -15,6 +15,9 @@ export default function Cart() {
 
   return (
     <CartWrapper>
+      {cart.length === 0 && (
+        <div className="my-3">There doesn't seem to be anything here.</div>
+      )}
       {cart.map((game) => (
         <CartItem key={game.id} game={game} />
       ))}

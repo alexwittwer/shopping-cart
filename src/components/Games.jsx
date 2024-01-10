@@ -26,9 +26,9 @@ export default function Games({ game, cart, addToCart, delGame }) {
       <div className="flex justify-between items-center gap-3 m-2">
         <p>${(Math.round(game.rating * 1000) / 100 + 0.09).toFixed(2)}</p>
         {cart.some((item) => item.id === game.id) ? (
-          <button onClick={() => delGame(game.id)}>Remove from Cart</button>
+          <button onClick={() => delGame(game.id)}>Remove</button>
         ) : (
-          <button onClick={() => addToCart(game)}>Add to cart</button>
+          <button onClick={() => addToCart(game)}>Buy</button>
         )}
       </div>
     </>

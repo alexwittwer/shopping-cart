@@ -17,6 +17,8 @@ export default function SearchResults() {
     const data = await response.json();
     setLoading(false);
 
+    console.log(data);
+
     return data;
   }
 
@@ -35,6 +37,7 @@ export default function SearchResults() {
 
   return (
     <main>
+      <div className="text-center">{games.count} results</div>
       <CardWrapper>
         {games.results &&
           games.results.map((game) => {

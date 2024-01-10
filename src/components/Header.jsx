@@ -21,7 +21,7 @@ export default function Header() {
           <SearchBar />
           <Link to="/">Home</Link>
           <Link to="shop">Shop</Link>
-          <Link to="cart">Cart <div className={`absolute -translate-y-5 translate-x-10 w-fit text-sm p-1 text-center bg-slate-600 bg-opacity-30 rounded-full`}>
+          <Link to="cart">Cart <div className={`absolute -translate-y-5 translate-x-8 md:translate-x-10 w-fit text-sm p-1 text-center bg-slate-600 bg-opacity-30 rounded-full`}>
        {cart.length > 0 ? cart.length : ""}             
           </div>
          </Link>
