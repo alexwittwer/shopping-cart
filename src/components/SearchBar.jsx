@@ -1,43 +1,43 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { search } from "../utils/api";
+import { useNavigate } from "react-router-dom";
+import { SearchFunc } from "./App";
 
 export default function SearchBar() {
   const [term, setTerm] = useState();
-  const [games, setGames] = useState([]);
+  const supplySearch = useContext(SearchFunc);
+  const navigate = useNavigate();
 
   async function fetchData(url) {
-    const response = await fetch(url);
-    const data = await response.json();
-
-    return data;
+    try {
+      const response = await fetch(url);
+      const data = await response.json();
+      await supplySearch(data);
+      navigate(`/search/${term}`);
+    } catch (error) {
+      console.warn(error);
+    }
   }
 
-  function handleSearch() {
+  function handleSearch(e) {
+    e.preventDefault();
     const searchTerm = search(term);
-    fetchData(searchTerm)
-      .then((results) => {
-        setGames(results);
-      })
-      .catch((error) => console.warn(error));
+    fetchData(searchTerm);
   }
 
   return (
     <>
-      <form
-        action=""
-        onSubmit={(e) => {
-          e.preventDefault();
-          handleSearch(e);
-        }}
-      >
+      <form action="" onSubmit={handleSearch}>
         <input
+            className="max-w-40 sm:max-w-full"
           type="search"
           name="search"
           id="search"
-          onChange={(e) => setTerm(e.target.value)}
+          onChange={(e) => {
+            setTerm(e.target.value);
+          }}
         />
       </form>
-      {console.log(games)}
     </>
   );
 }

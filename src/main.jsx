@@ -8,6 +8,7 @@ import Shop from './components/Shop.jsx';
 import Cart from './components/Cart.jsx';
 import Landing from './components/Landing.jsx';
 import GamesPage from './components/GamesPage.jsx';
+import SearchResults from './components/SearchResults.jsx';
 
 const router = createBrowserRouter([
   {
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
       {
         path: "/home",
         element: <Landing />
+      },
+      {
+        path: "/search/:term",
+        element: <SearchResults />
       }
     ],
   },

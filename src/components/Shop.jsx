@@ -66,7 +66,7 @@ export default function Shop() {
   );
 }
 
-function Card({ children }) {
+export function Card({ children }) {
   return (
     <article className="rounded-b-lg h-full bg-slate-700 w-3/4 flex flex-col justify-between">
       {children}
@@ -74,7 +74,7 @@ function Card({ children }) {
   );
 }
 
-function CardWrapper({ children }) {
+export function CardWrapper({ children }) {
   return (
     <div className="grid xl:grid-cols-4 sm:grid-cols-2 gap-3 my-5 place-items-center">
       {children}
@@ -114,7 +114,7 @@ function SearchButtons({ setLoading, fetchData, setGames, params }) {
   );
 }
 
-function ShopNav({ games, setLoading, fetchData, setGames }) {
+export function ShopNav({ games, setLoading, fetchData, setGames }) {
   return (
     <nav className="flex justify-center gap-5 my-3">
       <button

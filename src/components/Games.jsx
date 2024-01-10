@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { Link } from "react-router-dom";
 
-export default function Game({ game, cart, addToCart, delGame }) {
+export default function Games({ game, cart, addToCart, delGame }) {
   return (
     <>
       <div
