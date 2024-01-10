@@ -10,11 +10,15 @@ export default function Header() {
   return (
     <div className="justify-between flex items-center mr-10 sm:mr-10 sm:m-5">
       <Link to="/">
-        <img src={logo} className="hidden absolute top-5 left-5 md:block md:h-10" alt="" />
+        <img
+          src={logo}
+          className="hidden absolute top-5 left-5 md:block md:h-10"
+          alt=""
+        />
       </Link>
       <nav className="flex items-center justify-end">
-        <ul className="flex text-2xl p-3 gap-2">
-          <SearchBar setLoading={null}/>
+        <ul className="flex md:text-2xl text-lg p-3 gap-2">
+          <SearchBar />
           <Link to="/">Home</Link>
           <Link to="shop">Shop</Link>
           <Link to="cart">

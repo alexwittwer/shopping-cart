@@ -118,6 +118,7 @@ export function ShopNav({ games, setLoading, fetchData, setGames }) {
   return (
     <nav className="flex justify-center gap-5 my-3">
       <button
+        disabled={!games.previous}
         onClick={() => {
           if (games.previous) {
             setLoading(true);
@@ -128,6 +129,7 @@ export function ShopNav({ games, setLoading, fetchData, setGames }) {
         Previous
       </button>
       <button
+        disabled={!games.next}
         onClick={() => {
           if (games.next) {
             setLoading(true);

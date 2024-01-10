@@ -52,49 +52,37 @@ export default function GamesPage() {
   }
 
   return (
-    <PageWrapper>
-        <Card game={game}>
-          <Swiper
-            pagination={{
-              type: "progressbar",
-            }}
-            navigation={true}
-            modules={[Pagination, Navigation]}
-            className="mySwiper2 mb-1"
-          >
-            {screens.results &&
-              screens.results.map((img) => {
-                return (
-                  <SwiperSlide key={img.id}>
-                    <img src={img.image} />
-                  </SwiperSlide>
-                );
-              })}
-          </Swiper>
-          <Description
-            game={game}
-            addToCart={addToCart}
-            delGame={delGame}
-            cart={cart}
-          />
-        </Card>
-      </PageWrapper>
-  );
-}
-
-function PageWrapper({ children }) {
-  return (
-    <article className="md:flex md:items-center md:justify-center">
-      <div className="flex items-center justify-center mx-2 place-items-center lg:w-2/3">
-        {children}
-      </div>{" "}
-    </article>
+    <Card game={game}>
+      <Swiper
+        pagination={{
+          type: "progressbar",
+        }}
+        navigation={true}
+        modules={[Pagination, Navigation]}
+        className="mySwiper2 mb-1"
+      >
+        {screens.results &&
+          screens.results.map((img) => {
+            return (
+              <SwiperSlide key={img.id}>
+                <img src={img.image} />
+              </SwiperSlide>
+            );
+          })}
+      </Swiper>
+      <Description
+        game={game}
+        addToCart={addToCart}
+        delGame={delGame}
+        cart={cart}
+      />
+    </Card>
   );
 }
 
 function Card({ children, game }) {
   return (
-    <div className="w-full mx-2 p-5 bg-slate-700 rounded-xl my-5 shadow-xl">
+    <div className="w-screen mx-2 p-5 bg-slate-700 rounded-xl my-5 shadow-xl lg:w-2/3 lg:mx-auto">
       <h1 className="text-center text-3xl my-5">{game.name}</h1>
       {children}
     </div>
@@ -104,7 +92,8 @@ function Card({ children, game }) {
 function Description({ game, addToCart, delGame, cart }) {
   return (
     <>
-      <div className="flex items-center justify-end m-3 gap-3">
+      <div className="flex items-center gap-3 justify-between">
+        <div className="font-bold">Average rating: {game.rating}/5</div>
         <div className="flex items-center gap-3">
           <div>
             Price: ${(Math.round(game.rating * 1000) / 100 + 0.09).toFixed(2)}
@@ -117,7 +106,6 @@ function Description({ game, addToCart, delGame, cart }) {
         </div>
       </div>
       <div className="flex flex-col gap-3">
-        <div>Average rating: {game.rating}/5</div>
         <p>Description: </p>
         <div
           className="flex flex-col gap-3"

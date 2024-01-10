@@ -1,13 +1,37 @@
-import { useContext } from "react";
-import { CartAdd, CartContents, CartDel, SearchRes } from "./App";
-import { CardWrapper, Card } from "./Shop";
+import { useContext, useEffect, useState } from "react";
+import { CartAdd, CartContents, CartDel, SearchTerm } from "./App";
+import { CardWrapper, Card, ShopNav } from "./Shop";
 import Games from "./Games";
+import Loading from "./Loading";
 
 export default function SearchResults() {
-  const games = useContext(SearchRes);
+  const searchTerm = useContext(SearchTerm);
+  const [games, setGames] = useState([]);
+  const [loading, setLoading] = useState(true);
   const addToCart = useContext(CartAdd);
   const delGame = useContext(CartDel);
   const cart = useContext(CartContents);
+
+  async function fetchData(url) {
+    const response = await fetch(url);
+    const data = await response.json();
+    setLoading(false);
+
+    return data;
+  }
+
+  useEffect(() => {
+    setLoading(true);
+    fetchData(searchTerm)
+      .then((results) => {
+        setGames(results);
+      })
+      .catch((error) => console.warn(error));
+  }, [searchTerm]);
+
+  if (loading) {
+    return <Loading />;
+  }
 
   return (
     <main>
@@ -26,6 +50,12 @@ export default function SearchResults() {
             );
           })}
       </CardWrapper>
+      <ShopNav
+        games={games}
+        setLoading={setLoading}
+        fetchData={fetchData}
+        setGames={setGames}
+      />
     </main>
   );
 }

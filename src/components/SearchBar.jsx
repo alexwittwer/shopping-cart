@@ -1,36 +1,25 @@
 import { useContext, useState } from "react";
 import { search } from "../utils/api";
 import { useNavigate } from "react-router-dom";
-import { SearchFunc } from "./App";
+import { UpdateSearchTerm } from "./App";
 
-export default function SearchBar({ setLoading }) {
+export default function SearchBar() {
   const [term, setTerm] = useState();
-  const supplySearch = useContext(SearchFunc);
+  const setSearchTerm = useContext(UpdateSearchTerm);
   const navigate = useNavigate();
-
-  async function fetchData(url) {
-    try {
-      if (setLoading) {setLoading(true)}
-      const response = await fetch(url);
-      const data = await response.json();
-      await supplySearch(data);
-      navigate(`/search/${term}`);
-    } catch (error) {
-      console.warn(error);
-    }
-  }
 
   function handleSearch(e) {
     e.preventDefault();
     const searchTerm = search(term);
-    fetchData(searchTerm);
+    setSearchTerm(searchTerm);
+    navigate(`/search/${term}`)
   }
 
   return (
     <>
       <form action="" onSubmit={handleSearch}>
         <input
-          className="max-w-40 sm:max-w-full"
+          className="max-w-40 pl-2 sm:max-w-full"
           type="search"
           name="search"
           id="search"

@@ -37,6 +37,10 @@ button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
+button:disabled {
+  background-color: #585858;
+  opacity: 0.5;
+}
 
 .card {
   padding: 0;
