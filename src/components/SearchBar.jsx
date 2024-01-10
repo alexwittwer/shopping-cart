@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { search } from "../utils/api";
 import { useNavigate } from "react-router-dom";
 import { SearchFunc } from "./App";
+import srch_ico from "../assets/srch_ico"
 
 export default function SearchBar({ setLoading }) {
   const [term, setTerm] = useState();
@@ -38,6 +39,7 @@ export default function SearchBar({ setLoading }) {
             setTerm(e.target.value);
           }}
         />
+        <img src={srch_ico} alt="" width={"20px"} />
       </form>
     </>
   );
