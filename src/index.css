@@ -42,10 +42,6 @@ button:disabled {
   opacity: 0.5;
 }
 
-.hero {
-  transition: 250ms;
-}
-
 .card {
   padding: 0;
 }

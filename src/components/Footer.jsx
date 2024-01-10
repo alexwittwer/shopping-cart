@@ -100,7 +100,7 @@ function FooterBottom() {
           <a href="#">Privacy</a>
         </li>
         <li>
-          <a href="#">Powered by Rawg.io API</a>
+          <a href="https://rawg.io/">Powered by Rawg.io API</a>
         </li>
       </ul>
     </div>
