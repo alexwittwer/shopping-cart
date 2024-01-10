@@ -39,7 +39,7 @@ export default function SearchBar({ setLoading }) {
             setTerm(e.target.value);
           }}
         />
-        <button className="p-0 m-0" ><img src={srch_ico} alt="" width={"20px"} /></button>
+        <button className="p-0 m-0 bg-opacity-0" ><img src={srch_ico} alt="" width={"20px"} /></button>
       </form>
     </>
   );
